@@ -28,6 +28,8 @@ mod integrations {
         assert_eq!(message, b);
     }
 
+    // Test for decryption of message if the incorrect message
+    // is given
     #[test]
     fn test_wrong_message() {
         let private = PrivateKey::new(&mut rand::thread_rng());
