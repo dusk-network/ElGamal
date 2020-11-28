@@ -11,17 +11,13 @@ use thiserror::Error;
 /// Standard error for the interface
 pub enum Error {
     /// Cryptographic invalidity
-    #[error("Generic Error in signature scheme")]
+    #[error("Generic Error in Encryption scheme")]
     Generic,
-    /// Invalid secret key
-    #[error("Invalid seed provided to generate Secret key")]
-    InvalidSeed,
+
     /// Invalid data as an output
-    #[error("Invalid data gievn for signature")]
+    #[error("Invalid data given for encryption scheme")]
     InvalidData,
-    /// Invalid signature
-    #[error("Invalid signature for verification")]
-    InvalidSignature,
+
     /// Invalid byte coversions
     #[error("Byte serialisation performed incorrectly")]
     SerialisationError,
