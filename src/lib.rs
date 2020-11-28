@@ -8,7 +8,6 @@ mod error;
 
 use crate::error::Error;
 use core::ops::{Add, AddAssign, Mul, MulAssign, Sub, SubAssign};
-use dusk_plonk::bls12_381::BlsScalar;
 use dusk_plonk::jubjub::{JubJubAffine, JubJubExtended, JubJubScalar, GENERATOR_EXTENDED};
 use rand::{CryptoRng, Rng};
 use std::io;
