@@ -56,4 +56,12 @@ For a reference to the algorithm, please see the
   `δ - γ · a = m`.
 
 ## Licensing
-This code is licensed under Mozilla Public License Version 2.0 (MPL-2.0). Please see [LICENSE](https://github.com/dusk-network/plonk/blob/master/LICENSE) for further info.
+This code is licensed under Mozilla Public License Version 2.0 (MPL-2.0). 
+Please see [LICENSE](https://github.com/dusk-network/plonk/blob/master/LICENSE) for further info.
+
+### Contribution
+
+Unless you explicitly state otherwise, any contribution intentionally
+submitted for inclusion in the work by you, as defined in the Apache-2.0
+license, shall be dual licensed as above, without any additional terms or
+conditions.
