@@ -9,17 +9,17 @@ jobs:
     steps:	
       - uses: actions/checkout@v2	
       - uses: actions-rs/toolchain@v1	
-      with:	
-        profile: minimal	
-        toolchain: nightly	
-        override: true	
-    - uses: actions-rs/cargo@v1	
-      with:	
-        command: install	
-        args: --git https://github.com/dusk-network/cargo-dusk-analyzer	
-    - uses: actions-rs/cargo@v1	
-      with:	
-        command: dusk-analyzer	
+        with:	
+          profile: minimal	
+          toolchain: nightly	
+          override: true	
+      - uses: actions-rs/cargo@v1	
+        with:	
+          command: install	
+          args: --git https://github.com/dusk-network/cargo-dusk-analyzer	
+      - uses: actions-rs/cargo@v1	
+        with:	
+          command: dusk-analyzer	
 
   
   test_nightly:
