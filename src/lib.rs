@@ -13,14 +13,13 @@ use rand::{CryptoRng, Rng};
 use std::io;
 use std::io::{Read, Write};
 
-#[allow(non_snake_case)]
 // This is the private key selected by the key generator
 #[derive(Default, Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord)]
 pub struct PrivateKey(JubJubScalar);
 
 impl PrivateKey {
-    // This will create a new [`PrivateKey`] from a scalar
-    // of the Field JubJubScalar.
+    /// This will create a new [`PrivateKey`] from a scalar
+    /// of the Field JubJubScalar.
     pub fn new<T>(rand: &mut T) -> PrivateKey
     where
         T: Rng + CryptoRng,
@@ -56,7 +55,7 @@ impl From<PrivateKey> for PublicKey {
 }
 
 impl PublicKey {
-    // Encrypt a given message using a public key and random
+    /// Encrypt a given message using a public key and random
     pub fn encrypt(self, message: JubJubExtended, secret: JubJubScalar) -> Cypher {
         let s = self.0 * secret;
 
@@ -75,18 +74,18 @@ pub struct Cypher {
 }
 
 impl Cypher {
-    // Decrypt a given cipher using a private key
-    // this will return the message
+    /// Decrypt a given cipher using a private key
+    /// this will return the message
     pub fn decrypt(self, private: PrivateKey) -> JubJubExtended {
         self.delta - self.gamma * private.0
     }
 
-    // Returns Gamma from the Cypher struct
+    /// Returns Gamma from the Cypher struct
     pub fn gamma(self) -> JubJubExtended {
         self.gamma
     }
 
-    // Returns Delta from the Cypher struct
+    /// Returns Delta from the Cypher struct
     pub fn delta(self) -> JubJubExtended {
         self.delta
     }
@@ -99,7 +98,6 @@ impl Cypher {
         buf
     }
 
-    #[allow(non_snake_case)]
     pub fn from_bytes(buf: [u8; 64]) -> Result<Cypher, Error> {
         let mut gamma_buf = [0u8; 32];
         gamma_buf.copy_from_slice(&buf[..32]);
@@ -151,7 +149,6 @@ impl Read for Cypher {
     }
 }
 
-#[allow(non_snake_case)]
 impl Write for Cypher {
     fn write(&mut self, buf: &[u8]) -> io::Result<usize> {
         let mut n = 0;
